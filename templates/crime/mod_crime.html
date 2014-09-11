@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+{% extends 'crime/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<head>
+    <title>{% block title %}modifier une crime{% endblock %}</title>
+    {% block style %}
+        <link href="{% static 'css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+<div class="col-sm-8">
+ <div class="panel panel-success">
+  <div class="panel-heading">choisissez le crime à modifier en cliquant sur son icone</div>
+ <div class="panel-body">
+    {% include 'crime/gmindex.html' %}
+ </div>
+ </div>
+</div>
+<div class="col-sm-4 panel panel-primary">
+<div class="panel-heading">Cliquez sur un crime pour modifier</div>
+<div class="panel-body">
+    <form style="color: #000000" method="post" action="/crime/modifier/">
+    {% csrf_token %}
+    <input type="hidden" value="" id="id_id" name="id" class="form-group">
+    {% for Hfield in form.hidden_fields %}
+	{{ Hfield }}
+    {% endfor %}
+    {% for Vfield in form.visible_fields %}
+	{{ Vfield.errors }}
+	<div class="form-group">
+	<label>{{ Vfield.help_text }}</label>
+	{% render_field Vfield class+="form-control" %}
+	</div>
+    {% endfor %}
+    <input type="submit" class="btn btn-success" value="send">
+    </form>
+</div>
+</div>
+{% endblock %}
+{% block script %}
+    <script src="{% static 'js/mod_crime.js' %}"></script>
+    <script src="{% static 'js/moment.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datetimepicker.js' %}" ></script>
+    <script>
+        $(document).ready(function(){
+            $('#id_time').datetimepicker({
+                pick12HourFormat: false,
+                format: 'YYYY-MM-DD HH:mm:ss'
+            });
+        })
+    </script>
+{% endblock %}
+</body>
+</html>

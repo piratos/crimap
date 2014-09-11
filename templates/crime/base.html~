@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap-fluid-adj.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styl.css' %}" rel="stylesheet" type="text/css">
+        <title> {% block title %}donner le titre ! {% endblock %}</title>
+    </head>
+
+    <body>
+
+
+<div class="container">
+<div class=" navbar  navbar-inverse navbar-fixed-top" >
+<div class="navbar-inner">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</a>
+            <a class="brand" href="#"> &nbsp;&nbsp;&nbsp;&nbsp;<img src= "{% static 'log.PNG' %}">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+<div class="nav-collapse collapse" >
+<div data-role="header" style="overflow:hidden;">
+    <h2 > <font color="#C0CCD2" style="Arial">CriMap </font> </h2>
+ 
+    <ul class=" nav pull-right">
+<li> <a href="#"><font size="3pt" color ="#BFC6CB" > <img src= "{% static 'cadena.png' %}">&nbsp;&nbsp;Se connecter</font></a>
+</ul >
+<ul class="nav navbar-nav main-navi uppercase ">
+<li><a href="/crime/acceuil"><font size="3pt" color ="#BFC6CB"><img src= "{% static 'home.ico' %}">&nbsp;Accueil</font></a>
+<li> <a href='/crime/new_crime' ><font size="3pt" color ="#BFC6CB"> <img src= "{% static 'mark.ico' %}">Ajouter un crime</font> </a>
+<li> <a href='/crime/statistique'><font size="3pt" color ="#BFC6CB"><img src= "{% static 'stat.png' %} ">&nbsp;Statstiques</font> </a>
+<li> <a href='#' > <font size="3pt" color ="#BFC6CB"><img src= "{% static 'mod.ico' %}">&nbsp;Modifier un crime </font> </a> 
+<li> <a href='#'> <font size="3pt" color ="#BFC6CB"><img src= "{% static 'delet.ico' %}">&nbsp;Supprimer un crime  </font></a> 
+
+</div>
+</div>
+</div>
+</div> 
+</div> 
+
+	 <div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span4">
+            <div class="well sidebar-nav">
+               {% block body_block_left %}
+            {% endblock %}
+            </div>
+           
+        </div>
+      
+        <div class="span8">
+            {% block body_block_right %}
+            {% endblock %}
+        </div>
+       
+    </div>
+   
+</div>
+
+
+<hr>
+	
+
+<div class="footer">
+<div class="container">
+  <p class="text-muted">
+CriMap &copy; 2014
+</p>
+</div>
+</div> 
+
+      
+       <script src="{% static 'js/jquery-2.0.3.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+   
+</body>
+</html>

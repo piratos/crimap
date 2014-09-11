@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+{% extends 'crime/base.html' %}
+{% load static %}
+<head>
+    <title>{% block title %} a carte{% endblock %}</title>
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <div class="container">
+     <div class="panel panel-primary">
+  <div class="panel-heading">naviguez dans la carte pour localiser les crimes</div>
+ <div class="panel-body">
+    {% include 'crime/gmindex.html' %}
+ </div>
+     </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="{% static 'js/carte.js' %}"></script>
+{% endblock %}
+</body>
+</html>

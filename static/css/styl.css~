@@ -1,0 +1,44 @@
+body {
+  background-color:#E7EAF0;
+  color:#048;      
+  font-size: 12px;
+  line-height: 16px;
+}
+a { 
+  color: #028; 
+}
+footer { 
+  text-align: center; 
+  color : #000000 ;
+}
+.nav {
+  background-color:#002A46;
+  border-radius: 15px;
+  padding: 0 !important;
+  border: 0px solid #ddd;
+  margin-bottom: 4px;
+}
+section { 
+  padding-right: 0 !important; 
+}
+.panel {
+  background-color:#002A46;
+  border-radius: 8px;
+  padding-bottom: 5px;
+}
+h1 {
+  text-shadow: 4px 4px 5px #066;
+  color: #066;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: #002A46; 
+}
+.panel-default > .panel-heading, .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  color: #048;
+  background-color: #BD000D;
+  border-radius: 8px;
+}
+.footer-wrapper {
+position: relative;
+height: 50px;
+}

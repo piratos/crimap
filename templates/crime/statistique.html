@@ -1,0 +1,32 @@
+{% extends 'crime/base.html' %}
+{% load static %}
+{% block title %} statistique {% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+    <div class="hero-unit">
+     <div class="panel panel-success col-sm-6">
+  <div class="panel-heading">choisissez la position du crime en cliquant sur la souris gauche</div>
+ <div class="panel-body">
+        <div class=" active" id="container_type"></div>
+     </div>
+         </div>
+             <div class="panel panel-success col-sm-6">
+  <div class="panel-heading">choisissez la position du crime en cliquant sur la souris gauche</div>
+ <div class="panel-body">
+        <div class="active" id="container_sex"></div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+    <script src="{% static 'js/highcharts.js' %}"></script>
+    <script src="{% static 'js/stat1.js' %}" ></script>
+    <script>
+       $(document).ready(function(){
+           plot_sex_stat(baseConfig);
+           plot_type_stat(baseConfig);
+});
+    </script>
+{% endblock %}

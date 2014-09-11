@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+{% extends 'crime/base.html' %}
+{% load static %}
+<head>
+    <title>calender</title>
+{% block style %}
+    <link href="{% static 'css/cal-heatmap.css' %}" rel="stylesheet">
+{% endblock %}    
+<style>
+        button {
+            width:60px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+{% block content %}
+<div class="conatiner" style="padding-left:30px;padding-right:30px">
+<div class="panel panel-info">
+    <div class="panel-heading">Repartition des crimes par année</div>
+    <div class="panel-body">
+    <div  id="calender" ></div>
+</div>
+    <button class="btn btn-warning btn-lg" id="prev">prev</button><button class="btn btn-success btn-lg" id="next">next</button>
+</div>
+    <hr>
+
+<div class="panel panel-info">
+    <div class="panel-heading">Repartition des crimes par moi</div>
+    <div class="panel-body">
+    <div  id="calender1" ></div>
+</div>
+    <button class="btn btn-warning btn-lg" id="prev1">prev</button><button class="btn btn-success btn-lg" id="next1">next</button>
+</div>
+    <hr>
+
+<div class="panel panel-info">
+    <div class="panel-heading">Repartition des crimes par jour</div>
+    <div class="panel-body">
+    <div  id="calender2" ></div>
+</div>
+    <button class="btn btn-warning btn-lg" id="prev2">prev</button><button class="btn btn-success btn-lg" id="next2">next</button>
+</div></div>
+<script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="{% static 'js/cal-heatmap.min.js' %}"></script>
+<script src="{% static 'js/calender.js' %}"></script>
+{% endblock %}
+</body>
+</html>

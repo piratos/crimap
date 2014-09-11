@@ -1,0 +1,58 @@
+{% extends  'crime/base.html' %}
+{%  load static %}
+{% load widget_tweaks %}
+{% block title %}ajout d'un crime ! {% endblock %}
+{% block style %}
+        <link href="{% static 'css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="col-sm-4 panel panel-primary">
+     <div class="panel-heading">
+ <h4>De quel crime etes vous la victime ? </h4>
+    </div>
+<div class="panel-body">
+	
+        <form id="crime_form" method="post" action="/crime/new_crime/" style="color:#000000">
+
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+		</br>
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+		<div class="form-group">
+                <label>{{ field.help_text }}</label>
+		</br>
+                {% render_field field class+="form-control" %}
+		</div>
+	</br>
+            {% endfor %}
+
+            <button class="btn btn-success" type="submit" name="submit" > envoyer </button>
+</form>
+    </div>
+</div>
+<div class="col-sm-8">
+ <div class="panel panel-success">
+  <div class="panel-heading">choisissez la position du crime en cliquant sur la souris gauche</div>
+ <div class="panel-body">
+{% include 'crime/gmindex.html' %}
+     </div>
+     </div>
+            <script src="{% static 'js/add_script.js' %}"></script>
+</div>
+{% endblock %}
+{% block script %}
+    <script src="{% static 'js/moment.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datetimepicker.js' %}" ></script>
+    <script>
+        $(document).ready(function(){
+            $('#id_time').datetimepicker({
+                pick12HourFormat: false,
+                format: 'YYYY-MM-DD HH:mm:ss'
+            });
+        })
+    </script>
+{% endblock %}

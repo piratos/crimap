@@ -1,0 +1,10 @@
+{% extends 'crime/base.html' %}
+{% load static %}
+{% block title %}thanks{% endblock %}
+
+{% block body_block_left %}
+<h1> Merci pour votre aide</h1>
+{% endblock %}
+{% block body_block_right %}
+<img src="{% static 'tunisia.jpg' %}" >
+ {% endblock %}

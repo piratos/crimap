@@ -1,0 +1,43 @@
+{% extends  'crime/base.html' %}
+{%  load static %}
+{% block title %}ajout d'un crime ! {% endblock %}
+{% block body_block_left %}
+<div class="hero-unit">	
+ <h4>De quel crime etes vous la victime ? </h4>
+
+	<div class="container">
+        <form id="crime_form" method="post" action="/crime/new_crime/">
+
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+		</br>
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+		</br>
+                {{ field }}
+	</br>
+            {% endfor %}
+
+            <button class="btn btn-primary" type="submit" name="submit" > envoyer </button> 
+</form>
+    </div>
+</div>
+{% endblock %}
+{% block body_block_right %}
+		</br> 
+	</br>
+</br> 
+</br>
+</br>
+<div class="container">
+ <h2><font color="#244994">Marquer la place du crime</font> </h2>
+  	 
+      	  <script src="{% static 'js/add_script.js' %}"></script>
+       		 {% include 'crime/gmindex.html' %} 
+   	
+</div>
+{% endblock %}
