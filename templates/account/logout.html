@@ -1,0 +1,20 @@
+{% extends "crime/base.html" %}
+
+{% load url from future %}
+{% load i18n %}
+
+{% block title %}deconnection{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Deconnection</h1>
+
+<p class="text-center"><b>Etes vous sure de deconnecter ?</b></p>
+
+<form class="text-center" method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  <input type="hidden" name="{{redirect_field_name}}" value="/crime/accueil/"/>
+  <button class="btn btn-danger" type="submit">deconnecter</button>
+</form>
+
+
+{% endblock %}

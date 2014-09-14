@@ -6,6 +6,7 @@
         <link href="{% static 'css/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
 {% endblock %}
 {% block content %}
+    <div class="row">
 <div class="col-sm-4 panel panel-primary">
      <div class="panel-heading">
  <h4>De quel crime etes vous la victime ? </h4>
@@ -36,13 +37,14 @@
 </div>
 <div class="col-sm-8">
  <div class="panel panel-success">
-  <div class="panel-heading">choisissez la position du crime en cliquant sur la souris gauche</div>
+  <div class="panel-heading">marquez la place du crime en cliquant sur le boutant droit de la souris</div>
  <div class="panel-body">
 {% include 'crime/gmindex.html' %}
      </div>
      </div>
             <script src="{% static 'js/add_script.js' %}"></script>
 </div>
+    </div>
 {% endblock %}
 {% block script %}
     <script src="{% static 'js/moment.min.js' %}"></script>

@@ -1,8 +1,7 @@
-from django.conf.urls import patterns, url
-from crime import views
+from django.conf.urls import patterns, url, include
 
 urlpatterns = patterns('crime.views',
-                       url(r'^acceuil/$', 'acceuil', name='acceuil'),
+                       url(r'^accueil/$', 'acceuil', name='acceuil'),
                        url(r'^new_crime/$', 'add_crime', name='add_crime'),
                        url(r'^thanks/$', 'thanks', name='thanks'),
                        url(r'^statistique/$', 'statistique', name='statistique'),
@@ -13,5 +12,4 @@ urlpatterns = patterns('crime.views',
                        url(r'cdata/', 'calendar_data'),
                        url(r'cal/', 'cal'),
                        url(r'mod/', 'mod_crime'),
-                       url(r'carte/', 'carte'),
-)
+                       url(r'carte/', 'carte'), )

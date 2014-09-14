@@ -1,0 +1,29 @@
+{% extends "crime/base.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load url from future %}
+
+{% block title %}connection{% endblock %}
+{% block style %}
+    <link href="{% static 'css/boostrap-social.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+
+<h1 class="text-center">connectez vous !</h1>
+
+{% if socialaccount.providers  %}
+
+<div id="social-links">
+    <ul style="list-style: None;" class="list-group-item text-center">
+        <li><a href="/accounts/facebook/login/" class="afacebook"><span class="ifacebook"><img src="{% static 'images/facebook.png' %}"></span></a></li><br>
+        <li><a href="/accounts/google/login/" class="agoogleplus"><span class="igoogleplus"><img src="{% static 'images/googleplus.png' %}"></span></a></li>
+            {% include "socialaccount/snippets/login_extra.html" %}
+    </ul>
+</div>
+
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% endif %}
+{% endblock %}

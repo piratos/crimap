@@ -12,3 +12,9 @@ class crimeForm(forms.ModelForm):
 
     class Meta:
         model = crime
+        fields = ("gouvernorat",
+                  "description",
+                  "sexe",
+                  "time",
+                  "position",
+                  "crimetype")

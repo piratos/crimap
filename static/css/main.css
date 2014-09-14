@@ -9,7 +9,7 @@
 body {
   font-family: 'Dosis', sans-serif;
   font-size: 17px;
-  /*color: #fff*/
+    /*background-color:#183152;*/
 }
 
 
@@ -80,30 +80,10 @@ h2 {
   width: 100%
 }
 
-.social-icons a {
-  font-size: 18px;
-  color: #fff;
-  padding-left:20px;  
-}
 
-.social-icons .fa-facebook:hover {
-  color: #3B5997
-}
-
-.social-icons .fa-twitter:hover {
-  color:#29C5F6
-}
-
-.social-icons .fa-google-plus:hover {
-  color:#D13D2F
-}
-
-.social-icons .fa-youtube:hover{
-  color: #ec5538
-}
 
 .navbar-brand {
-  background-color: #1B7B98;
+  background-color: #183152;
   height: 90px;
   margin-bottom: 20px;
   position: relative;
@@ -115,7 +95,7 @@ h2 {
 }
 
 .navbar-right {
-  background-color: #1B7B98;
+  background-color: #183152;
   padding:0 95px 0 0;
   opacity: .9
 }

@@ -20,8 +20,8 @@
     </head>
 
     <body>
-<header id="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-			<div class="container">
+<header style="background-color: #183152;" id="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+			<div class="X">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 		                    <span class="sr-only">Toggle navigation</span>
@@ -35,35 +35,70 @@
 		            </div>
 		            <div class="navbar-collapse collapse">
 		                <ul class="nav navbar-nav navbar-right">
-		                    <li class="active"><a href="/crime/acceuil/">Home &nbsp; &nbsp;&nbsp; </a></li>
-		                    <li ><a href="/crime/new_crime/">Ajouter un crime</a></li>
-		                    <li ><a href="/crime/mod/">Modifier un crime</a></li>
-		                    <li ><a href="/crime/carte/">Carte</a></li>
-		                    <li ><a href="/crime/statistique/">Crimes</a></li>
-		                    <li ><a href="/crime/cal/">Calendrier</a></li>
+		                    <li id="p1" ><a href="/crime/accueil/">accueil</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a  href="#">bien venue <b>{{ user.first_name }}</b></a></li>
+                            <li id="actions"><a href="#" data-toggle="modal" data-target="#myModal">actions</a></li>
+                            {% else %}
+                            <li><a href="#">invité</a></li>
+                            <li><a href="/accounts/login/">connection</a></li>
+                            {% endif %}
+		                    <li id="p4" ><a href="/crime/carte/">Carte</a></li>
+		                    <li id="p5" ><a href="/crime/statistique/">Crimes</a></li>
+		                    <li id="p6" ><a href="/crime/cal/">Calendrier</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a  href="/accounts/logout/">deconnecter</a></li>
+                            {% endif %}
 		                </ul>
 		            </div>
 		        </div>
     </header>
+                                <!-- Modal -->
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title panel-success" id="myModalLabel">Actions :</h4>
+      </div>
+      <div class="modal-body">
+<!-- modal content -->
+          <ul class="list-group-item" style="list-style-type: None">
+              		       <li class="text-center" id="p2" ><a class="btn btn-success" href="/crime/new_crime/">Ajouter un crime&nbsp; </a></li><br>
+		                   <li class="text-center" id="p3" uid-data="{{ user.id }}" ><a class="btn btn-warning" href="/crime/mod/">Modifier un crime</a></li>
+          </ul>
+        </div>
+      <div class="modal-footer">
+        <button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
     <!--/#header-->
 {% block content %}
 
 {% endblock %}
+
 <script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/smoothscroll.js' %}"></script>
 <script src="{% static 'js/jquery.parallax.js' %}"></script>
 <script src="{% static 'js/jquery.nav.js' %}"></script>
-<!-- <script src="{% static 'js/main.js' %}"></script> -->
+<script>
+    $(document).ready(function(){
+        $('#{{ p }}').addClass('active');
+        $('#actions').click(function(){
+            $('#actions').addClass('active');
+        });
+        $('#close').click(function(){
+            $('#actions').removeClass('active');
+        });
+    })
+</script>
 {% block script %}
 {% endblock %}
-</br>
-</br>
-</br> </br>
-</hr>
-<footer>
+<footer class="panel-footer">
 
- CriMap &copy; 2014 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp Tous droits réservés
+ CriMap &copy; 2014 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; Tous droits réservés
 </footer>
 </body>
 </html>

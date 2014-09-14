@@ -1,5 +1,6 @@
 from django.db import models
 from geoposition.fields import GeopositionField
+from django.contrib.auth.models import User
 
 
 gouv_choice = (
@@ -51,6 +52,7 @@ class crime(models.Model):
                                 help_text="Date et Heure du crime: ")
     position = GeopositionField()
     crimetype = models.CharField(max_length=30, choices=crime_choice, help_text=" crime :")
+    personne = models.ForeignKey(User)
 
     def __unicode__(self):
         return 'Tunisie'

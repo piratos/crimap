@@ -40,10 +40,10 @@ function plot_sex_stat(baseConfig){
          });
     var sexd = {
         title: {
-            text: 'pourcentage of crimes by sexe'
+            text: ''
         },
         series: [{
-            name: 'pourcentage of this sexe',
+            name: 'pourcentage',
             type: 'pie',
             data: data_sexe
         }]};
@@ -67,10 +67,10 @@ function plot_type_stat(baseConfig){
          });
     var typed = {
         title: {
-            text: 'pourcentage of crimes by type'
+            text: ''
         },
         series: [{
-            name: 'pourcentage of this type',
+            name: 'pourcentage',
             type: 'pie',
             data: data_type
         }]};

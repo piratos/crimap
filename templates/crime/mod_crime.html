@@ -11,16 +11,17 @@
 </head>
 <body>
 {% block content %}
+    <div class="row">
 <div class="col-sm-8">
  <div class="panel panel-success">
-  <div class="panel-heading">choisissez le crime à modifier en cliquant sur son icone</div>
+  <div class="panel-heading">choisissez le crime à modifiere</div>
  <div class="panel-body">
     {% include 'crime/gmindex.html' %}
  </div>
  </div>
 </div>
 <div class="col-sm-4 panel panel-primary">
-<div class="panel-heading">Cliquez sur un crime pour modifier</div>
+<div class="panel-heading">renseignements</div>
 <div class="panel-body">
     <form style="color: #000000" method="post" action="/crime/modifier/">
     {% csrf_token %}
@@ -52,6 +53,7 @@
             });
         })
     </script>
+    </div>
 {% endblock %}
 </body>
 </html>

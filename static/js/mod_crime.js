@@ -2,7 +2,8 @@
  * Created by piratos on 8/17/14.
  */
 function load_markers(c){
-    $.get('/crime/statistique/filter/', function(data){
+    var uid = parseInt($('#p3').attr('uid-data'))
+    $.get('/crime/statistique/filter/', {uid:uid}, function(data){
         create_markers(c, data);
     });
 }
@@ -51,7 +52,8 @@ function create_markers(c, data){
             console.log("marker clicked at " + this.getPosition());
             var lat = this.getPosition().lat();
             var lng = this.getPosition().lng();
-            $.get('/crime/modifier/', {lat:lat, lng:lng}, function(data){
+            var uid = parseInt($('#p3').attr('uid-data'));
+            $.get('/crime/modifier/', {lat:lat, lng:lng, uid:uid}, function(data){
                 spread_data(data);
             });
         });
